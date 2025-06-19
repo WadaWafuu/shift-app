@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>シフト時間集計</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>シフト時間集計</h1>
+
+  <!-- 入力フォーム -->
+  <label>日付：<input type="date" id="shiftDate"></label>
+  <label>開始時間：<input type="time" id="startTime"></label>
+  <label>終了時間：<input type="time" id="endTime"></label>
+  <button onclick="addShift()">追加</button>
+  <!--<button type="button" onclick="resetInputs()">リセット</button>-->
+
+
+  <!-- シフト一覧 -->
+  <table id="shiftTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>日付</th>
+        <th>開始</th>
+        <th>終了</th>
+        <th>時間</th>
+        <th>分数</th>
+        <th>17時以降の時間</th>
+        <th>17時以降の分数</th>
+        <th>削除</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- 合計 -->
+  <h2>合計</h2>
+  <p id="totalHour">全体の時間：0</p>
+  <p id="totalMin">全体の分数：0</p>
+  <p id="totalNightHour">17時以降の時間：0</p>
+  <p id="totalNightMin">17時以降の分数：0</p>
+
+  <!-- 日付別合計 -->
+  <!-- 出勤日数 -->
+<h2>出勤日数</h2>
+<ul id="dailyTotals"></ul>
+
+
+  <script src="script.js"></script>
+</body>
+<!-- <script src="script.js"></script> をコメントアウト -->
+<!-- <script src="script.js"></script> -->
+
+<script>
+  console.log("✅ インラインJS動いたよ");
+
+  function resetInputs() {
+    document.getElementById('shiftDate').value = '';
+    document.getElementById('startTime').value = '';
+    document.getElementById('endTime').value = '';
+  }
+</script>
+
+</html>

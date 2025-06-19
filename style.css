@@ -1,0 +1,104 @@
+
+  /* 全体の基本設定（中央寄せ、フォントなど） */
+  body {
+    font-family: sans-serif;
+    margin: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+
+  input[type="time"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .summary {
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  /* ▼ スマホ対応：画面が狭いときの調整（600px以下） */
+  /* ▼ スマホで押しやすく・見やすくするための調整 */
+@media (max-width: 600px) {
+  body {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  label {
+    font-size: 1.1em;
+  }
+
+  input[type="time"],
+  input[type="date"] {
+    font-size: 1.1em;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 14px;
+  }
+
+  table {
+    font-size: 0.9em;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+/* ▼ テーブルがはみ出すときに横スクロールできるようにする */
+#shiftTable {
+  overflow-x: auto;
+  display: block;
+}
