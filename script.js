@@ -71,7 +71,7 @@ function updateTable() {
   shifts.forEach((shift, index) => {
     const row = document.createElement("tr");
 
-    // 表示用：10分単位に切り捨て
+    // 表示用：10分単位に切り捨て（勤務時間・夜間時間）
     const totalRounded = floorTo10Minutes(shift.totalMin);
     const totalHour = Math.floor(totalRounded / 60);
     const totalRemainMin = totalRounded % 60;
@@ -80,11 +80,20 @@ function updateTable() {
     const nightHour = Math.floor(nightRounded / 60);
     const nightRemainMin = nightRounded % 60;
 
+    // 表示用：開始・終了時刻の10分単位表示
+    const [startH, startM] = shift.start.split(":").map(Number);
+    const roundedStartM = floorTo10Minutes(startM);
+    const displayStart = `${String(startH).padStart(2, "0")}:${String(roundedStartM).padStart(2, "0")}`;
+
+    const [endH, endM] = shift.end.split(":").map(Number);
+    const roundedEndM = floorTo10Minutes(endM);
+    const displayEnd = `${String(endH).padStart(2, "0")}:${String(roundedEndM).padStart(2, "0")}`;
+
     row.innerHTML = `
       <td>${index + 1}</td>
       <td>${shift.date}</td>
-      <td>${shift.start}</td>
-      <td>${shift.end}</td>
+      <td>${displayStart}</td>
+      <td>${displayEnd}</td>
       <td>${totalHour}</td>
       <td>${totalRemainMin}</td>
       <td>${nightHour}</td>
