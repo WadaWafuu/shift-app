@@ -1,77 +1,76 @@
+/* 全体の基本設定（中央寄せ、フォントなど） */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  /* 全体の基本設定（中央寄せ、フォントなど） */
-  body {
-    font-family: sans-serif;
-    margin: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+h1 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
 
-  h1 {
-    text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-  }
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
 
-  label {
-    display: block;
-    margin: 10px 0 5px;
-  }
+input[type="time"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
 
-  input[type="time"],
-  input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    font-size: 1em;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
+button:hover {
+  background-color: #45a049;
+}
 
-  button:hover {
-    background-color: #45a049;
-  }
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
 
-  table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    font-size: 0.9em;
-  }
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
 
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
+th {
+  background-color: #f2f2f2;
+}
 
-  th {
-    background-color: #f2f2f2;
-  }
+.summary {
+  margin-top: 20px;
+  font-size: 1.1em;
+  text-align: center;
+}
 
-  .summary {
-    margin-top: 20px;
-    font-size: 1.1em;
-    text-align: center;
-  }
-
-  /* ▼ スマホ対応：画面が狭いときの調整（600px以下） */
-  /* ▼ スマホで押しやすく・見やすくするための調整 */
+/* ▼ スマホ対応：画面が狭いときの調整（600px以下） */
 @media (max-width: 600px) {
   body {
     margin: 10px;
     font-size: 16px;
+    max-width: 100%; /* ← スマホで画面幅を最大限使う！ */
   }
 
   label {
@@ -87,6 +86,7 @@
   button {
     font-size: 1.2em;
     padding: 14px;
+    margin-top: 12px;
   }
 
   table {
