@@ -1,6 +1,11 @@
 // シフトデータ配列（各シフトは日付付き）
 let shifts = [];
 
+// 分数を10分単位で切り捨てる関数
+function floorTo10Minutes(minutes) {
+  return Math.floor(minutes / 10) * 10;
+}
+
 function addShift() {
   const dateInput = document.getElementById("shiftDate");
   const startInput = document.getElementById("startTime");
@@ -66,10 +71,14 @@ function updateTable() {
   shifts.forEach((shift, index) => {
     const row = document.createElement("tr");
 
-    const totalHour = Math.floor(shift.totalMin / 60);
-    const totalRemainMin = shift.totalMin % 60;
-    const nightHour = Math.floor(shift.nightMin / 60);
-    const nightRemainMin = shift.nightMin % 60;
+    // 表示用：10分単位に切り捨て
+    const totalRounded = floorTo10Minutes(shift.totalMin);
+    const totalHour = Math.floor(totalRounded / 60);
+    const totalRemainMin = totalRounded % 60;
+
+    const nightRounded = floorTo10Minutes(shift.nightMin);
+    const nightHour = Math.floor(nightRounded / 60);
+    const nightRemainMin = nightRounded % 60;
 
     row.innerHTML = `
       <td>${index + 1}</td>
@@ -87,15 +96,6 @@ function updateTable() {
   });
 }
 
-/*
-// 入力フォームの値をリセットする関数
-function resetInputs() {
-  document.getElementById('shiftDate').value = '';
-  document.getElementById('startTime').value = '';
-  document.getElementById('endTime').value = '';
-}
-*/
-
 // 合計計算と出勤日数表示
 function updateTotal() {
   let total = 0;
@@ -107,10 +107,14 @@ function updateTotal() {
     night += shift.nightMin;
   });
 
-  const totalHour = Math.floor(total / 60);
-  const totalMin = total % 60;
-  const nightHour = Math.floor(night / 60);
-  const nightMin = night % 60;
+  // 表示用：10分単位に切り捨て
+  const totalRounded = floorTo10Minutes(total);
+  const totalHour = Math.floor(totalRounded / 60);
+  const totalMin = totalRounded % 60;
+
+  const nightRounded = floorTo10Minutes(night);
+  const nightHour = Math.floor(nightRounded / 60);
+  const nightMin = nightRounded % 60;
 
   document.getElementById("totalHour").innerText = `全体の時間：${totalHour}`;
   document.getElementById("totalMin").innerText = `全体の分数：${totalMin}`;
