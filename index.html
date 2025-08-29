@@ -7,61 +7,68 @@
 </head>
 <body>
   <h1>シフト時間集計</h1>
+  <h3>※開始時間は念のため揃えてください</h3>
 
   <!-- 入力フォーム -->
-  <label>日付：<input type="date" id="shiftDate"></label>
-  <label>開始時間：<input type="time" id="startTime" step="600"></label>
-  <label>終了時間：<input type="time" id="endTime" step="600"></label>
-  <button onclick="addShift()">追加</button>
-  <button onclick="clearLocalData()">全てのデータを削除</button>
+  <div class="form-box">
+    <label>日付：
+      <input type="date" id="shiftDate">
+    </label>
 
-  <!--<button type="button" onclick="resetInputs()">リセット</button>-->
+    <label>勤務区分：
+      <select id="workType">
+        <option value="">勤務時間を選択してください</option>
+        <option value="am">午前勤務</option>
+        <option value="pm">午後勤務</option>
+        <option value="乳健">乳健</option>
+      </select>
+    </label>
 
+    <label>開始時間：
+      <input type="time" id="startTime" step="600">
+    </label>
+
+    <label>終了時間：
+      <input type="time" id="endTime" step="600">
+    </label>
+
+    <label>
+      <input type="checkbox" id="mwCheck"> 月水（午後は14:40開始）
+    </label>
+    <!---
+    <label>
+      <input type="checkbox" id="fluCheck"> インフル（午後は14:20開始）
+    </label>
+    -->
+
+    <button onclick="addShift()">追加</button>
+    <button onclick="clearAll()">一括削除</button>
+  </div>
 
   <!-- シフト一覧 -->
+  <h2>シフト一覧</h2>
   <table id="shiftTable">
     <thead>
       <tr>
         <th>#</th>
         <th>日付</th>
+        <th>区分</th>
         <th>開始</th>
         <th>終了</th>
         <th>時間</th>
-        <th>分数</th>
-        <th>17時以降の時間</th>
-        <th>17時以降の分数</th>
+        <th>分</th>
+        <th>17時以降(時)</th>
+        <th>17時以降(分)</th>
         <th>削除</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
 
-  <!-- 合計 -->
-  <h2>合計</h2>
-  <p id="totalHour">全体の時間：0</p>
-  <p id="totalMin">全体の分数：0</p>
-  <p id="totalNightHour">17時以降の時間：0</p>
-  <p id="totalNightMin">17時以降の分数：0</p>
-
-  <!-- 日付別合計 -->
-  <!-- 出勤日数 -->
-<h2>出勤日数</h2>
-<ul id="dailyTotals"></ul>
-
+  <!-- 集計結果 -->
+  <h2>集計結果</h2>
+  <div id="summary"></div>
 
   <script src="script.js"></script>
 </body>
-<!-- <script src="script.js"></script> をコメントアウト -->
-<!-- <script src="script.js"></script> -->
-
-<script>
-  console.log("✅ インラインJS動いたよ");
-
-  function resetInputs() {
-    document.getElementById('shiftDate').value = '';
-    document.getElementById('startTime').value = '';
-    document.getElementById('endTime').value = '';
-  }
-</script>
-
 </html>

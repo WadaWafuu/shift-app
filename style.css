@@ -1,35 +1,53 @@
-/* 全体の基本設定（中央寄せ、フォントなど） */
+/* 全体の基本設定 */
 body {
   font-family: sans-serif;
   margin: 20px;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
-h1 {
+/* 見出し */
+h1, h2 {
   text-align: center;
-  font-size: 1.8em;
+  margin: 15px 0;
+}
+
+/* 入力フォームボックス */
+.form-box {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 label {
   display: block;
-  margin: 10px 0 5px;
+  margin: 10px 0;
+  font-size: 0.95em;
 }
 
+input[type="date"],
 input[type="time"],
-input[type="date"] {
+select {
   width: 100%;
   padding: 8px;
   font-size: 1em;
   box-sizing: border-box;
+  margin-top: 5px;
 }
 
+input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* ボタン */
 button {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: 12px;
   font-size: 1em;
   background-color: #4CAF50;
   color: white;
@@ -42,16 +60,18 @@ button:hover {
   background-color: #45a049;
 }
 
+/* テーブル */
 table {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   border-collapse: collapse;
   font-size: 0.9em;
+  min-width: 700px; /* スクロール前提 */
 }
 
 th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 6px;
   text-align: center;
 }
 
@@ -59,46 +79,39 @@ th {
   background-color: #f2f2f2;
 }
 
-.summary {
-  margin-top: 20px;
-  font-size: 1.1em;
-  text-align: center;
-}
-
-/* ▼ スマホ対応：画面が狭いときの調整（600px以下） */
-@media (max-width: 600px) {
-  body {
-    margin: 10px;
-    font-size: 16px;
-    max-width: 100%; /* ← スマホで画面幅を最大限使う！ */
-  }
-
-  label {
-    font-size: 1.1em;
-  }
-
-  input[type="time"],
-  input[type="date"] {
-    font-size: 1.1em;
-    padding: 12px;
-  }
-
-  button {
-    font-size: 1.2em;
-    padding: 14px;
-    margin-top: 12px;
-  }
-
-  table {
-    font-size: 0.9em;
-    overflow-x: auto;
-    display: block;
-    white-space: nowrap;
-  }
-}
-
-/* ▼ テーブルがはみ出すときに横スクロールできるようにする */
+/* 横スクロール対応 */
 #shiftTable {
   overflow-x: auto;
   display: block;
+}
+
+/* 集計結果 */
+#summary {
+  margin-top: 20px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 0.95em;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  body {
+    margin: 10px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 0.8em;
+  }
 }
