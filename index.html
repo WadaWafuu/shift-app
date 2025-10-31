@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>シフト時間集計</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ←スマホ対応 -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,14 +34,10 @@
       <input type="time" id="endTime" step="600">
     </label>
 
-    <label>
-      <input type="checkbox" id="mwCheck"> 月水（午後は14:40開始）
-    </label>
-    <!---
-    <label>
-      <input type="checkbox" id="fluCheck"> インフル（午後は14:20開始）
-    </label>
-    -->
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="mwCheck"> 月水（午後は14:40開始）</label>
+      <label><input type="checkbox" id="fluCheck"> インフル（午後は14:20開始）</label>
+    </div>
 
     <button onclick="addShift()">追加</button>
     <button onclick="clearAll()">一括削除</button>
@@ -48,23 +45,25 @@
 
   <!-- シフト一覧 -->
   <h2>シフト一覧</h2>
-  <table id="shiftTable">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>日付</th>
-        <th>区分</th>
-        <th>開始</th>
-        <th>終了</th>
-        <th>時間</th>
-        <th>分</th>
-        <th>17時以降(時)</th>
-        <th>17時以降(分)</th>
-        <th>削除</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <div class="table-wrapper">
+    <table id="shiftTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>日付</th>
+          <th>区分</th>
+          <th>開始</th>
+          <th>終了</th>
+          <th>時間</th>
+          <th>分</th>
+          <th>17時以降(時)</th>
+          <th>17時以降(分)</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
   <!-- 集計結果 -->
   <h2>集計結果</h2>
